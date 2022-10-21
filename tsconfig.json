@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "../pasta2/App.test.tsx", "../pasta2/App.test.tsx"  ]
 }
