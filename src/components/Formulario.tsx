@@ -13,8 +13,8 @@ const Formulario = () => {
 
   const adicionarParticipante = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    setNome("");
     adicionarNaLista(nome);
+    setNome("");
     inputRef?.current?.focus();
   };
 
@@ -31,7 +31,7 @@ const Formulario = () => {
         // type="button"
         disabled={!nome}
       >Adicionar</button>
-      {mensagemDeErro && <p>{mensagemDeErro}</p>}
+      {mensagemDeErro && <p role="alert">{mensagemDeErro}</p>}
     </form>
   );
 }
