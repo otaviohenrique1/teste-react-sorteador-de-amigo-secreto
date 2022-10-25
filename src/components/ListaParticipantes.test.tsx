@@ -8,7 +8,7 @@ jest.mock('../hook/useListaDeParticipantes', () => {
   return {
     useListaDeParticipantes: jest.fn()
   };
-})
+});
 
 describe("uma lista vazia de participantes", () => {
   // Antes de cada teste
