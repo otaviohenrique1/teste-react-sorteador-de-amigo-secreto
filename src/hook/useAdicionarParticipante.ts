@@ -18,6 +18,3 @@ export const useAdicionarParticipante = () => {
   };
 };
 
-/*
-Array.prototype.includes() => O includes()método determina se um array inclui um determinado valor entre suas entradas, retornando trueou falseconforme apropriado.
-*/
