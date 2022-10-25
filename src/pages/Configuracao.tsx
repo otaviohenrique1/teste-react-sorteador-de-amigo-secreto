@@ -1,24 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useListaDeParticipantes } from '../hook/useListaDeParticipantes';
+import Formulario from '../components/Formulario';
+import ListaParticipantes from '../components/ListaParticipantes';
+import Rodape from '../components/Rodape';
 
-const Rodape = () => {
-  const participantes = useListaDeParticipantes();
-
-  const navegarPara = useNavigate();
-
-  const iniciar = () => {
-    navegarPara("/sorteio");
-  };
-
+const Configuracao = () => {
   return (
-    <footer>
-      <button
-        disabled={participantes.length < 3}
-        onClick={iniciar}
-      >Iniciar brincadeira</button>
-    </footer>
+    <>
+      <Formulario />
+      <ListaParticipantes/>
+      <Rodape/>
+    </>
   );
 }
 
-export default Rodape;
+export default Configuracao;
