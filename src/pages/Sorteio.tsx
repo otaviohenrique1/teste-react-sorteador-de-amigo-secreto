@@ -15,7 +15,6 @@ const Sorteio = () => {
             return (
               <option
                 key={participante}
-                value={participante}
               >{participante}</option>
             );
           })}
