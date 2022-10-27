@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { RecoilRoot } from "recoil";
 import { useListaDeParticipantes } from "../hook/useListaDeParticipantes";
+import { useResultadoSorteio } from "../hook/useResultadoSorteio";
 import Sorteio from "./Sorteio";
 
 jest.mock('../hook/useListaDeParticipantes', () => {
@@ -9,12 +10,25 @@ jest.mock('../hook/useListaDeParticipantes', () => {
   };
 });
 
+jest.mock('../hook/useResultadoSorteio', () => {
+  return {
+    useResultadoSorteio: jest.fn()
+  };
+});
+
 describe("a pagina de sorteio", () => {
   const participantes = ['Ana', 'Catarina', 'Jorel'];
 
+  const resultado = new Map([
+    ['Ana', 'Jorel'],
+    ['Jorel', 'Catarina'],
+    ['Catarina', 'Ana'],
+  ]);
+  
   // Antes de cada teste
   beforeEach(() => {
     (useListaDeParticipantes as jest.Mock).mockReturnValue(participantes);
+    (useResultadoSorteio as jest.Mock).mockReturnValue(resultado);
   });
 
   test('todos os participantes podem exibir o seu amigo secreto', () => {
@@ -44,7 +58,6 @@ describe("a pagina de sorteio", () => {
       }
     });
     
-
     const botao = screen.getByRole("button");
 
     fireEvent.click(botao);
